@@ -1,6 +1,9 @@
+import os
 import requests
+from dotenv import load_dotenv
 
-API_KEY = "YOUR_OPENWEATHER_KEY"
+load_dotenv()
+API_KEY = os.getenv("OPENWEATHER_KEY")
 
 def get_weather(city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
