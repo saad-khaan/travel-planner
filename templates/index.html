@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+  <input type="text" name="city" placeholder="City" class="form-control mb-2" required>
+  <input type="date" name="start_date" class="form-control mb-2" required>
+  <input type="date" name="end_date" class="form-control mb-2" required>
+  <button class="btn btn-primary">Plan Trip</button>
+</form>
+
+{% if weather %}
+<div class="alert alert-info mt-3">
+  <h5>Weather in {{ weather.city }}</h5>
+  <p>{{ weather.temp }} °C - {{ weather.desc }}</p>
+</div>
+{% endif %}
+
+{% if ai_itinerary %}
+<div class="card mt-3">
+  <div class="card-header">🤖 AI Suggested Itinerary</div>
+  <div class="card-body">
+    <pre>{{ ai_itinerary }}</pre>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
